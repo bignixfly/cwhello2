@@ -1,0 +1,33 @@
+{
+  "name": "dodoumir",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && mkdir -p dist/prisma && cp src/prisma/contract.json dist/prisma/contract.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/server.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@prisma/composer": "0.40.0",
+    "@prisma/composer-prisma-cloud": "0.40.0",
+    "@prisma/orm-postgres": "8.0.0-rc.25",
+    "effect": "4.1.4",
+    "pg": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "@types/pg": "^8.20.0",
+    "prisma": "8.0.0-rc.35",
+    "typescript": "^5.9.0"
+  },
+  "overrides": {
+    "effect": "4.1.4",
+    "@effect/platform-bun": "4.1.4",
+    "@effect/platform-node": "4.1.4",
+    "@effect/platform-node-shared": "4.1.4"
+  }
+}
