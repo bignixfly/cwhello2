@@ -13,5 +13,8 @@ export default compute({
     module: import.meta.url,
     dir: "../dist",
     entry: "./server.mjs",
+    // tsc transpiles without bundling, so the built tree still imports
+    // @prisma/composer and friends; deploy must stage them from node_modules.
+    dependencies: "external",
   }),
 });
